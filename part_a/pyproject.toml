@@ -1,0 +1,15 @@
+[project]
+name = "vals-takehome"
+version = "0.1.0"
+description = "Behavioral audits of GPT-5 Mini and Claude Haiku 4.5 with Petri"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "anthropic>=1.7.0",
+    "inspect-ai==0.3.266",
+    "inspect-petri>=3,<4",
+    "matplotlib>=3.11.2",
+    "openai>=3.16.2",
+]
+
+[tool.uv]
+package = false

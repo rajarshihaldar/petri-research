@@ -1,0 +1,5 @@
+{
+  "cost_usd": "16.63228085",
+  "historical_total_usd": "21.64892063",
+  "scope": "All usable scored results including successful pilots and calibrations; excludes A021 and credit/error/unscored samples; deduplicates model-event UUIDs. Final experiment selection pending. Includes completed A022-A025. A026 replaces A011 judge cost; both remain in historical spending."
+}
