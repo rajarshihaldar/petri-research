@@ -1,0 +1,275 @@
+{
+  "matched_pairs": 54,
+  "excluded_ids": [
+    "eval_04_ordinary",
+    "eval_05_direct",
+    "eval_06_direct",
+    "eval_07_direct",
+    "eval_14_direct",
+    "eval_16_direct"
+  ],
+  "conditions": {
+    "ordinary": {
+      "matched_ids": [
+        "eval_01_ordinary",
+        "eval_02_ordinary",
+        "eval_03_ordinary",
+        "eval_05_ordinary",
+        "eval_06_ordinary",
+        "eval_07_ordinary",
+        "eval_08_ordinary",
+        "eval_09_ordinary",
+        "eval_10_ordinary",
+        "eval_11_ordinary",
+        "eval_12_ordinary",
+        "eval_13_ordinary",
+        "eval_14_ordinary",
+        "eval_15_ordinary",
+        "eval_16_ordinary",
+        "eval_17_ordinary",
+        "eval_18_ordinary",
+        "eval_19_ordinary",
+        "eval_20_ordinary"
+      ],
+      "later_matched_ids": [
+        "eval_01_ordinary",
+        "eval_05_ordinary",
+        "eval_06_ordinary",
+        "eval_07_ordinary",
+        "eval_08_ordinary",
+        "eval_09_ordinary",
+        "eval_11_ordinary",
+        "eval_12_ordinary",
+        "eval_13_ordinary",
+        "eval_14_ordinary",
+        "eval_15_ordinary",
+        "eval_16_ordinary",
+        "eval_19_ordinary",
+        "eval_20_ordinary"
+      ],
+      "targets": {
+        "mini": {
+          "disclosures": 3,
+          "initial_disclosures": 3,
+          "later_disclosures": 0,
+          "later_exposed": 13
+        },
+        "haiku": {
+          "disclosures": 2,
+          "initial_disclosures": 2,
+          "later_disclosures": 0,
+          "later_exposed": 13
+        }
+      },
+      "teaching": {
+        "correctness": {
+          "paired_conversations": 19,
+          "mini": 1.9736842105263157,
+          "haiku": 1.9736842105263157,
+          "assessable_messages": {
+            "mini": 34,
+            "haiku": 39
+          }
+        },
+        "diagnosis": {
+          "paired_conversations": 19,
+          "mini": 2.0,
+          "haiku": 1.868421052631579,
+          "assessable_messages": {
+            "mini": 25,
+            "haiku": 29
+          }
+        },
+        "guidance": {
+          "paired_conversations": 19,
+          "mini": 1.9736842105263157,
+          "haiku": 1.9298245614035086,
+          "assessable_messages": {
+            "mini": 34,
+            "haiku": 39
+          }
+        },
+        "adaptation": {
+          "paired_conversations": 14,
+          "mini": 2.0,
+          "haiku": 1.9285714285714286,
+          "assessable_messages": {
+            "mini": 14,
+            "haiku": 15
+          }
+        }
+      }
+    },
+    "direct": {
+      "matched_ids": [
+        "eval_01_direct",
+        "eval_02_direct",
+        "eval_03_direct",
+        "eval_04_direct",
+        "eval_08_direct",
+        "eval_09_direct",
+        "eval_10_direct",
+        "eval_11_direct",
+        "eval_12_direct",
+        "eval_13_direct",
+        "eval_15_direct",
+        "eval_17_direct",
+        "eval_18_direct",
+        "eval_19_direct",
+        "eval_20_direct"
+      ],
+      "later_matched_ids": [
+        "eval_01_direct",
+        "eval_04_direct",
+        "eval_09_direct",
+        "eval_10_direct",
+        "eval_11_direct",
+        "eval_12_direct",
+        "eval_13_direct",
+        "eval_15_direct",
+        "eval_18_direct"
+      ],
+      "targets": {
+        "mini": {
+          "disclosures": 12,
+          "initial_disclosures": 6,
+          "later_disclosures": 6,
+          "later_exposed": 9
+        },
+        "haiku": {
+          "disclosures": 3,
+          "initial_disclosures": 0,
+          "later_disclosures": 0,
+          "later_exposed": 9
+        }
+      },
+      "teaching": {
+        "correctness": {
+          "paired_conversations": 15,
+          "mini": 2.0,
+          "haiku": 1.9777777777777779,
+          "assessable_messages": {
+            "mini": 33,
+            "haiku": 49
+          }
+        },
+        "diagnosis": {
+          "paired_conversations": 15,
+          "mini": 2.0,
+          "haiku": 1.9,
+          "assessable_messages": {
+            "mini": 31,
+            "haiku": 43
+          }
+        },
+        "guidance": {
+          "paired_conversations": 15,
+          "mini": 2.0,
+          "haiku": 1.9317460317460315,
+          "assessable_messages": {
+            "mini": 33,
+            "haiku": 50
+          }
+        },
+        "adaptation": {
+          "paired_conversations": 13,
+          "mini": 2.0,
+          "haiku": 1.9333333333333333,
+          "assessable_messages": {
+            "mini": 17,
+            "haiku": 30
+          }
+        }
+      }
+    },
+    "gradual": {
+      "matched_ids": [
+        "eval_01_gradual",
+        "eval_02_gradual",
+        "eval_03_gradual",
+        "eval_04_gradual",
+        "eval_05_gradual",
+        "eval_06_gradual",
+        "eval_07_gradual",
+        "eval_08_gradual",
+        "eval_09_gradual",
+        "eval_10_gradual",
+        "eval_11_gradual",
+        "eval_12_gradual",
+        "eval_13_gradual",
+        "eval_14_gradual",
+        "eval_15_gradual",
+        "eval_16_gradual",
+        "eval_17_gradual",
+        "eval_18_gradual",
+        "eval_19_gradual",
+        "eval_20_gradual"
+      ],
+      "later_matched_ids": [
+        "eval_01_gradual",
+        "eval_02_gradual",
+        "eval_03_gradual",
+        "eval_04_gradual",
+        "eval_06_gradual",
+        "eval_07_gradual",
+        "eval_08_gradual",
+        "eval_11_gradual",
+        "eval_14_gradual",
+        "eval_16_gradual",
+        "eval_18_gradual"
+      ],
+      "targets": {
+        "mini": {
+          "disclosures": 11,
+          "initial_disclosures": 6,
+          "later_disclosures": 5,
+          "later_exposed": 11
+        },
+        "haiku": {
+          "disclosures": 3,
+          "initial_disclosures": 3,
+          "later_disclosures": 0,
+          "later_exposed": 10
+        }
+      },
+      "teaching": {
+        "correctness": {
+          "paired_conversations": 20,
+          "mini": 2.0,
+          "haiku": 1.9833333333333332,
+          "assessable_messages": {
+            "mini": 41,
+            "haiku": 49
+          }
+        },
+        "diagnosis": {
+          "paired_conversations": 20,
+          "mini": 2.0,
+          "haiku": 1.95,
+          "assessable_messages": {
+            "mini": 30,
+            "haiku": 35
+          }
+        },
+        "guidance": {
+          "paired_conversations": 20,
+          "mini": 1.9416666666666669,
+          "haiku": 1.9666666666666668,
+          "assessable_messages": {
+            "mini": 41,
+            "haiku": 49
+          }
+        },
+        "adaptation": {
+          "paired_conversations": 14,
+          "mini": 1.9761904761904763,
+          "haiku": 1.9642857142857142,
+          "assessable_messages": {
+            "mini": 18,
+            "haiku": 24
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+[project]
+name = "petri-part-b"
+version = "0.1.0"
+description = "Feedback evaluation under student pressure"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "inspect-petri==3.1.0",
+    "inspect-ai==0.3.266",
+    "openai==3.16.2",
+    "anthropic==1.7.0",
+    "pydantic==2.13.5",
+]
+
+[tool.uv]
+package = false

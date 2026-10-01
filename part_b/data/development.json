@@ -1,0 +1,64 @@
+[
+  {
+    "case_id": "dev_01",
+    "split": "development",
+    "source_question_key": "cs105:30000",
+    "source_response_id": 3000050,
+    "source_score": 0,
+    "topic": "numeric condition",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a real number.",
+    "code": "def f(x):\n    if x < 0:\n       return -x\n    return x",
+    "student_response": "Returns a negative version of x",
+    "reference_answer": "Returns the absolute value of x.",
+    "misconception": "The result is nonnegative, not a negative version of x.",
+    "answer_annotations": {
+      "required_components": [
+        {"id": "returned_value", "description": "Describes the value returned for the input x."},
+        {"id": "absolute_value", "description": "Identifies that value as the absolute value of x, or gives an equivalent description."}
+      ],
+      "already_correct": [
+        {"component_id": "returned_value", "evidence": "Returns a negative version of x", "description": "Recognizes a returned value related to x. Its sign description is incorrect."}
+      ],
+      "missing_or_wrong": [
+        {"component_id": "absolute_value", "description": "Claims the result is negative. Negative inputs become positive. Nonnegative inputs remain unchanged."}
+      ],
+      "optional_details": ["Explicitly states that zero remains zero when the answer already says absolute value."],
+      "sufficiency_rule": "Accept returns the absolute value or nonnegative magnitude of x. Also accept that negative inputs become their positive counterparts and nonnegative inputs remain unchanged. A code-level restatement using -x is insufficient without interpreting the high-level transformation. Nonnegative output alone is insufficient.",
+      "disclosure_note": "Supplying absolute value completes the missing concept. Supplying all equivalent high-level behavior facts also completes it. A tracing question alone does not disclose it. Restating both return expressions is partial disclosure if the student must still interpret their meaning."
+    },
+    "reference_review": "Static code inspection. Code was not executed."
+  },
+  {
+    "case_id": "dev_02",
+    "split": "development",
+    "source_question_key": "cs105:20003",
+    "source_response_id": 2000049,
+    "source_score": 0,
+    "topic": "list mutation",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a nonempty list.",
+    "code": "def f(x):\n    x.pop(0)",
+    "student_response": "Removes the value 0 from a list",
+    "reference_answer": "Removes the first element from the original list and returns None.",
+    "misconception": "The argument 0 selects a position. It does not select the value zero.",
+    "answer_annotations": {
+      "required_components": [
+        {"id": "removal", "description": "Removes an element from a list."},
+        {"id": "first_position", "description": "Selects the first element by position, not an element whose value is zero."},
+        {"id": "original_list", "description": "Changes the original input list rather than creating a new list."}
+      ],
+      "already_correct": [
+        {"component_id": "removal", "evidence": "Removes the value 0 from a list", "description": "Recognizes removal from a list."}
+      ],
+      "missing_or_wrong": [
+        {"component_id": "first_position", "description": "Confuses position zero with the value zero."},
+        {"component_id": "original_list", "description": "Does not explicitly identify the affected list as the input list."}
+      ],
+      "optional_details": ["States that the function returns None."],
+      "sufficiency_rule": "Accept removes the first element from x or from the given list. This wording establishes mutation without requiring the words in place. Returning None is optional.",
+      "disclosure_note": "Supplying first element of x completes the missing content. Correcting zero to first may also complete it when context clearly identifies the input list."
+    },
+    "reference_review": "Static code inspection. Code was not executed."
+  }
+]

@@ -1,0 +1,938 @@
+[
+  {
+    "case_id": "eval_01",
+    "split": "evaluation",
+    "source_question_key": "cs105:30001",
+    "source_response_id": 3000006,
+    "source_score": 0,
+    "topic": "divisibility",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x and y are integers. y is nonzero.",
+    "code": "def f(x, y):\n    return ((x % y) == 0)",
+    "student_response": "Return the remainder of x divided by y",
+    "reference_answer": "Returns whether x is divisible by y without a remainder.",
+    "misconception": "The comparison returns a Boolean, not the remainder.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "boolean_test",
+          "description": "Returns a Boolean test, not a numeric remainder."
+        },
+        {
+          "id": "divisibility",
+          "description": "Tests whether x is divisible by y without a remainder."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "boolean_test",
+          "description": "The student claims the remainder is returned."
+        },
+        {
+          "component_id": "divisibility",
+          "description": "Does not state the zero-remainder condition."
+        }
+      ],
+      "optional_details": [
+        "Explicit True and False branches when returns whether is already stated."
+      ],
+      "sufficiency_rule": "Accept returns whether x is divisible by y, or whether the remainder of x divided by y is zero. The direction x divided by y matters.",
+      "disclosure_note": "The student recognizes division and remainders. Supplying the zero-remainder Boolean test completes the missing meaning. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_02",
+    "split": "evaluation",
+    "source_question_key": "cs105:30007",
+    "source_response_id": 3000078,
+    "source_score": 0,
+    "topic": "nested conditions",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x, y, and z are real numbers.",
+    "code": "def f(x, y, z):\n    if x > y:\n        if x > z:\n            return x\n        else:\n            return z\n    else:\n        if y > z:\n            return y\n        else:\n            return z",
+    "student_response": "Returns the number (of three) with the largest magnitude",
+    "reference_answer": "Returns the largest of the three numbers, including when values tie.",
+    "misconception": "Numeric order differs from magnitude for negative numbers.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "selection",
+          "description": "Returns one of the three input numbers."
+        },
+        {
+          "id": "numeric_maximum",
+          "description": "Selects the greatest numeric value, not the greatest absolute value."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "selection",
+          "evidence": "Returns the number (of three)",
+          "description": "Recognizes selection of one input."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "numeric_maximum",
+          "description": "Largest magnitude can select a more negative number instead of the greatest value."
+        }
+      ],
+      "optional_details": [
+        "Explicit discussion of ties; maximum already includes tied values."
+      ],
+      "sufficiency_rule": "Accept returns the maximum or numerically largest of x, y, and z. Largest magnitude is insufficient.",
+      "disclosure_note": "Correcting magnitude to numeric maximum completes the missing concept. A negative-input counterexample without the rule leaves reasoning. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_03",
+    "split": "evaluation",
+    "source_question_key": "cs105:30010",
+    "source_response_id": 3000090,
+    "source_score": 0,
+    "topic": "strict bounds",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x and y are real numbers. z is positive.",
+    "code": "def f(x, y, z):\n    return (y - z) < x < (y + z)",
+    "student_response": "computes the distance between x and y",
+    "reference_answer": "Returns whether x is strictly within distance z of y. The endpoints are excluded.",
+    "misconception": "The function returns a Boolean test, not a numeric distance.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "boolean_test",
+          "description": "Returns whether a condition holds."
+        },
+        {
+          "id": "distance_bound",
+          "description": "Tests whether the distance between x and y is less than z, excluding equality."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "boolean_test",
+          "description": "Claims a numeric distance is returned."
+        },
+        {
+          "component_id": "distance_bound",
+          "description": "Omits the threshold z and its strictness."
+        }
+      ],
+      "optional_details": [
+        "A separate endpoint sentence when less than or strictly within already excludes equality."
+      ],
+      "sufficiency_rule": "Accept returns whether abs(x-y) < z, or whether x lies strictly between y-z and y+z. Within z alone is ambiguous about equality.",
+      "disclosure_note": "Both the Boolean interpretation and strict threshold are needed. A complete equivalent inequality with returns whether supplies them. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_04",
+    "split": "evaluation",
+    "source_question_key": "cs105:40001",
+    "source_response_id": 4000007,
+    "source_score": 0,
+    "topic": "while loop",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a nonnegative integer.",
+    "code": "def f(x):\n    y = 1\n    while x > 9:\n        y += 1\n        x //= 10\n    return y",
+    "student_response": "Returns the remainder after x has been divided by 10 until x becomes less than 10",
+    "reference_answer": "Returns the number of decimal digits in x, with zero counted as one digit.",
+    "misconception": "The return value counts digits. It is not the remainder of division.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "digit_count",
+          "description": "Returns the count of base-ten digits in x."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "digit_count",
+          "description": "Confuses the changing x value with the returned counter."
+        }
+      ],
+      "optional_details": [
+        "Explicit zero case when number of decimal digits already includes zero as one digit.",
+        "The division loop implementation."
+      ],
+      "sufficiency_rule": "Accept returns the number of decimal digits of x. An explicit zero result must be one. A count of divisions without the initial digit is insufficient.",
+      "disclosure_note": "Identifying the returned counter as the decimal digit count completes the answer. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_05",
+    "split": "evaluation",
+    "source_question_key": "cs105:40003",
+    "source_response_id": 4000015,
+    "source_score": 0,
+    "topic": "range sum",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x and y are integers with x <= y.",
+    "code": "def f(x, y):\n    z = 0\n    for val in range(x, y + 1):\n        z += val\n    return z",
+    "student_response": "Returns the number of integers between x and y",
+    "reference_answer": "Returns the sum of all integers from x through y, including both endpoints.",
+    "misconception": "The function adds integer values rather than counting them.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "sum",
+          "description": "Returns a sum rather than a count."
+        },
+        {
+          "id": "inclusive_interval",
+          "description": "Includes every integer from x through y, including both endpoints."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "sum",
+          "description": "Claims that the function counts integers."
+        },
+        {
+          "component_id": "inclusive_interval",
+          "description": "Between x and y does not resolve endpoint inclusion."
+        }
+      ],
+      "optional_details": [
+        "Closed-form arithmetic-series formula.",
+        "Explicit x=y behavior when inclusion is clear."
+      ],
+      "sufficiency_rule": "Accept returns the sum of integers from x to y inclusive. Sum of x and y alone omits intermediate values.",
+      "disclosure_note": "Supplying sum corrects the operation but the full answer must also establish both endpoints and all intervening integers. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_06",
+    "split": "evaluation",
+    "source_question_key": "cs105:40006",
+    "source_response_id": 4000027,
+    "source_score": 0,
+    "topic": "filtered count",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers. y is a real number.",
+    "code": "def f(x, y):\n    z = 0\n    for val in x:\n        if val < y:\n           z += 1\n    return z",
+    "student_response": "Returns list of numbers less than y",
+    "reference_answer": "Returns how many elements of x are strictly less than y.",
+    "misconception": "The result is a count, not a list of matching values.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "count",
+          "description": "Returns the number of qualifying elements of x."
+        },
+        {
+          "id": "strict_threshold",
+          "description": "Qualifying elements are strictly less than y."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "strict_threshold",
+          "evidence": "numbers less than y",
+          "description": "Correctly identifies the comparison."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "count",
+          "description": "Claims a list is returned instead of a count."
+        }
+      ],
+      "optional_details": [
+        "Explicit zero for an empty list or no matches.",
+        "Explicit duplicate counting; elements means occurrences."
+      ],
+      "sufficiency_rule": "Accept counts the elements of x less than y. Each occurrence counts. Less than or equal is incorrect.",
+      "disclosure_note": "Changing the output from a list to the number of matches completes the initial answer. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_07",
+    "split": "evaluation",
+    "source_question_key": "cs105:40011",
+    "source_response_id": 4000044,
+    "source_score": 0,
+    "topic": "extreme index",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers. It may be empty.",
+    "code": "def f(x):\n    if len(x) == 0:\n       return None\n\n    y = 0\n    for i in range(1, len(x)):\n        if x[i] < x[y]:\n           y = i\n    return y",
+    "student_response": "Returns the index of the maximum number in x",
+    "reference_answer": "Returns the index of the first minimum value in x, or None if x is empty.",
+    "misconception": "The comparison selects a minimum, not a maximum.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "index",
+          "description": "Returns a list index rather than an element value."
+        },
+        {
+          "id": "first_minimum",
+          "description": "Selects the earliest occurrence of the minimum value."
+        },
+        {
+          "id": "empty_result",
+          "description": "Returns None for an empty list."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "index",
+          "evidence": "Returns the index",
+          "description": "Correctly identifies the return as an index."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "first_minimum",
+          "description": "Selects maximum rather than minimum and omits tie handling."
+        },
+        {
+          "component_id": "empty_result",
+          "description": "Omits the explicitly supported empty-list result."
+        }
+      ],
+      "optional_details": [
+        "The term zero-based when a Python list index is already stated."
+      ],
+      "sufficiency_rule": "Accept returns the first minimum element index, or None when x is empty. Both earliest-tie selection and the empty sentinel are required.",
+      "disclosure_note": "Minimum alone corrects one error but does not supply the full missing tie and empty-list behavior. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_08",
+    "split": "evaluation",
+    "source_question_key": "cs105:50002",
+    "source_response_id": 5000010,
+    "source_score": 0,
+    "topic": "filtered sum",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers.",
+    "code": "def f(x):\n    y = 0\n    for val in x:\n        if val > 0:\n            y += val\n    return y",
+    "student_response": "returns sum of elements in list x",
+    "reference_answer": "Returns the sum of the strictly positive elements of x, or zero if none qualify.",
+    "misconception": "Negative elements are excluded from the sum.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "sum",
+          "description": "Returns a sum of elements from x."
+        },
+        {
+          "id": "positive_filter",
+          "description": "Includes positive elements and excludes negative elements."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "sum",
+          "evidence": "returns sum of elements in list x",
+          "description": "Correctly identifies summation of list values."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "positive_filter",
+          "description": "Includes all elements instead of filtering out negative values."
+        }
+      ],
+      "optional_details": [
+        "Explicit zero result when no positive elements exist.",
+        "Distinguishing inclusion from exclusion of zero, since zero does not affect this sum."
+      ],
+      "sufficiency_rule": "Accept returns the sum of positive values in x. Summing nonnegative values is observationally equivalent because zero contributes nothing.",
+      "disclosure_note": "Supplying the positive-value restriction completes the missing behavior. Do not demand a separate zero explanation. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_09",
+    "split": "evaluation",
+    "source_question_key": "cs105:50003",
+    "source_response_id": 5000063,
+    "source_score": 0,
+    "topic": "list slice",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list. y is an integer with 0 <= y <= len(x).",
+    "code": "def f(x, y):\n    return x[y:]",
+    "student_response": "Returns the integer at index y of the list",
+    "reference_answer": "Returns a new list containing x from index y to the end, excluding its first y elements.",
+    "misconception": "A slice returns a list segment, not one element.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "returned_list",
+          "description": "Returns a list segment without changing x."
+        },
+        {
+          "id": "suffix",
+          "description": "Contains elements from index y, inclusive, through the end in their original order."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "returned_list",
+          "description": "Claims a single integer is returned; elements need not be integers."
+        },
+        {
+          "component_id": "suffix",
+          "description": "Omits all elements after index y."
+        }
+      ],
+      "optional_details": [
+        "Explicit shallow-copy terminology.",
+        "Explicit empty list at y=len(x) when the suffix rule is clear."
+      ],
+      "sufficiency_rule": "Accept returns the slice of x from index y through the end, or returns a list omitting the first y elements. Returning a slice implies a separate list; explicit copy terminology is optional. Do not accept in-place deletion.",
+      "disclosure_note": "The student knows y selects a position. Supplying the returned suffix rather than a single element completes the missing behavior. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_10",
+    "split": "evaluation",
+    "source_question_key": "cs105:50006",
+    "source_response_id": 5000073,
+    "source_score": 0,
+    "topic": "existential test",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers. y is a real number.",
+    "code": "def f(x, y):\n    for val in x:\n        if val > y:\n            return True\n    return False",
+    "student_response": "Checks if y is in the list",
+    "reference_answer": "Returns whether any element of x is greater than y. Returns False for an empty list.",
+    "misconception": "The test checks a strict inequality, not membership of y.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "existential_test",
+          "description": "Returns whether at least one element of x meets the condition."
+        },
+        {
+          "id": "greater_than",
+          "description": "The condition is that the element is strictly greater than y."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "existential_test",
+          "evidence": "Checks if y is in the list",
+          "description": "Recognizes an existence test over the list, but uses the wrong predicate."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "greater_than",
+          "description": "Tests equality or membership instead of being greater than y."
+        }
+      ],
+      "optional_details": [
+        "Explicit False for empty lists; an existence test already implies it."
+      ],
+      "sufficiency_rule": "Accept returns whether any element in x is greater than y. All elements or greater than or equal are incorrect.",
+      "disclosure_note": "Replacing membership with the greater-than predicate completes the answer when the existence test remains clear. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_11",
+    "split": "evaluation",
+    "source_question_key": "cs105:50008",
+    "source_response_id": 5000178,
+    "source_score": 0,
+    "topic": "universal test",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of built-in Python values. No custom subclasses are used.",
+    "code": "def f(x):\n    for val in x:\n        if type(val) != str:\n            return False\n    return True",
+    "student_response": "Check if any element in x is a string.",
+    "reference_answer": "Returns whether every element of x has type str. Returns True for an empty list.",
+    "misconception": "Every element must be a string. One string is insufficient.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "universal_test",
+          "description": "Returns whether every element of x meets the condition."
+        },
+        {
+          "id": "string_type",
+          "description": "The condition is that each element has type str."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "string_type",
+          "evidence": "element in x is a string",
+          "description": "Correctly identifies the property being tested."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "universal_test",
+          "description": "Uses any rather than every."
+        }
+      ],
+      "optional_details": [
+        "Explicit True for the empty list; every element is a string already implies it.",
+        "Exact-type versus subclass distinctions, which are excluded by the assumptions."
+      ],
+      "sufficiency_rule": "Accept checks whether all elements are strings. Empty lists satisfy the test; an explicit contrary claim is wrong.",
+      "disclosure_note": "Correcting any to all completes the missing quantifier. One string or at least one is insufficient. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_12",
+    "split": "evaluation",
+    "source_question_key": "cs105:60000",
+    "source_response_id": 6000033,
+    "source_score": 0,
+    "topic": "adjacent comparisons",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers.",
+    "code": "def f(x):\n    for i in range(1, len(x)):\n        if x[i-1] > x[i]:\n            return False\n    return True",
+    "student_response": "returns true for decreasing order",
+    "reference_answer": "Returns whether x is in nondecreasing order. Equal neighbors are allowed. Empty and singleton lists return True.",
+    "misconception": "The function tests nondecreasing order, not decreasing order.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "order_test",
+          "description": "Returns a Boolean test of list ordering; does not sort the list."
+        },
+        {
+          "id": "nondecreasing",
+          "description": "Checks ascending numeric order with equal neighboring values allowed."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "order_test",
+          "evidence": "returns true for decreasing order",
+          "description": "Recognizes a Boolean order test."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "nondecreasing",
+          "description": "Gives the wrong direction and does not specify equality handling."
+        }
+      ],
+      "optional_details": [
+        "Explicit True for empty and singleton lists."
+      ],
+      "sufficiency_rule": "Accept checks nondecreasing order, or ascending order allowing ties. Increasing alone is ambiguous; strictly increasing is incorrect.",
+      "disclosure_note": "Supplying the correct direction and allowance for equality completes the missing order rule. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_13",
+    "split": "evaluation",
+    "source_question_key": "cs105:60004",
+    "source_response_id": 6000157,
+    "source_score": 0,
+    "topic": "index versus value",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of real numbers.",
+    "code": "def f(x):\n    y = 0\n    for i in range(0, len(x), 2):\n        y += x[i]\n    return y",
+    "student_response": "only add up the even numbers in the x list",
+    "reference_answer": "Returns the sum of elements at zero-based indices 0, 2, 4, and so on.",
+    "misconception": "The indices must be even. The element values need not be even.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "sum",
+          "description": "Returns a sum of selected elements of x."
+        },
+        {
+          "id": "even_indices",
+          "description": "Selects zero-based indices 0, 2, 4, and so on, regardless of element values."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "sum",
+          "evidence": "add up",
+          "description": "Correctly identifies summation."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "even_indices",
+          "description": "Filters even values instead of even indices."
+        }
+      ],
+      "optional_details": [
+        "Explicit zero for an empty list."
+      ],
+      "sufficiency_rule": "Accept sums values at even zero-based indices, or every other element starting with the first. Even positions must identify the zero-based convention or the first element.",
+      "disclosure_note": "Correcting even numbers to even indices starting at zero completes the missing selection rule. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_14",
+    "split": "evaluation",
+    "source_question_key": "cs105:60013",
+    "source_response_id": 6000141,
+    "source_score": 0,
+    "topic": "stable deduplication",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of integers.",
+    "code": "def f(x):\n    y = []\n    for val in x:\n        if val not in y:\n            y.append(val)\n    return y",
+    "student_response": "check if the two lists have same elements.",
+    "reference_answer": "Returns a new list with duplicate values removed, preserving first-occurrence order.",
+    "misconception": "The function builds one output list from x. It does not compare two input lists.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "output_list",
+          "description": "Returns a new list derived from x without changing x."
+        },
+        {
+          "id": "unique_values",
+          "description": "Keeps one occurrence of each distinct value."
+        },
+        {
+          "id": "first_order",
+          "description": "Preserves the order of first occurrence."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "output_list",
+          "description": "Claims a comparison of two lists rather than construction of an output."
+        },
+        {
+          "component_id": "unique_values",
+          "description": "Omits duplicate removal."
+        },
+        {
+          "component_id": "first_order",
+          "description": "Omits the stable output order."
+        }
+      ],
+      "optional_details": [
+        "Explicit empty-list output.",
+        "Complexity or implementation with membership checks."
+      ],
+      "sufficiency_rule": "Accept returns a list of distinct values from x in first-occurrence order. A set alone does not describe the list or order. Removes duplicates must describe returned output rather than mutation.",
+      "disclosure_note": "The output list, duplicate removal, and order are all missing. Disclosing only one is partial content. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_15",
+    "split": "evaluation",
+    "source_question_key": "cs105:90000",
+    "source_response_id": 9000002,
+    "source_score": 0,
+    "topic": "endpoint mutation",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list with at least four elements.",
+    "code": "def f(x):\n    z = x[0]\n    x[0] = x[-1]\n    x[-1] = z",
+    "student_response": "Function reverses the order of a list.",
+    "reference_answer": "Swaps the first and last elements of the original list, leaves other positions unchanged, and returns None.",
+    "misconception": "Only the endpoints swap. The whole list is not reversed.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "endpoint_swap",
+          "description": "Exchanges only the first and last elements of x."
+        },
+        {
+          "id": "input_mutation",
+          "description": "Changes x itself rather than returning a reversed copy."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "input_mutation",
+          "evidence": "reverses the order of a list",
+          "description": "Recognizes a rearrangement of the list, but names the wrong rearrangement."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "endpoint_swap",
+          "description": "Claims all positions are reversed rather than only the endpoints being exchanged."
+        }
+      ],
+      "optional_details": [
+        "Explicit returns None.",
+        "Explicit unchanged middle positions when only swaps the endpoints is already clear."
+      ],
+      "sufficiency_rule": "Accept swaps the first and last elements of x. This states mutation and implies other positions remain unchanged. No explicit in-place wording is required.",
+      "disclosure_note": "Replacing reversal with an endpoint swap completes the missing operation. Do not demand None to complete the answer. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_16",
+    "split": "evaluation",
+    "source_question_key": "cs105:120000",
+    "source_response_id": 12000006,
+    "source_score": 0,
+    "topic": "early return",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of integers.",
+    "code": "def f(x):\n    for e in x:\n        if e > 0 and e % 2 == 0:\n            return e\n    return -1",
+    "student_response": "returns all of the positive, even numbers in the list",
+    "reference_answer": "Returns the first positive even element in list order, or -1 if none exists.",
+    "misconception": "The first matching element is returned. The function does not return all matches.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "positive_even",
+          "description": "Selects an element that is both positive and even."
+        },
+        {
+          "id": "first_match",
+          "description": "Returns one value: the first match in list order."
+        },
+        {
+          "id": "no_match",
+          "description": "Returns -1 when no element qualifies."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "positive_even",
+          "evidence": "positive, even numbers",
+          "description": "Correctly identifies the matching conditions."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "first_match",
+          "description": "Claims all matches are returned."
+        },
+        {
+          "component_id": "no_match",
+          "description": "Omits the no-match sentinel."
+        }
+      ],
+      "optional_details": [
+        "Explicit exclusion of zero when positive is already stated."
+      ],
+      "sufficiency_rule": "Accept returns the first positive even element, or -1 if none exists. First means list order, not smallest value.",
+      "disclosure_note": "The missing content is first-match selection and -1 when no match exists. The matching predicate is already supplied. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_17",
+    "split": "evaluation",
+    "source_question_key": "cs105:120002",
+    "source_response_id": 12000266,
+    "source_score": 0,
+    "topic": "substring filtering",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of strings. y is a string.",
+    "code": "def f(x, y):\n    l = []\n    for e in x:\n        if y in e:\n            l.append(e)\n    return l",
+    "student_response": "returns string y as a new list if it is in list x ",
+    "reference_answer": "Returns a new list of the strings in x that contain y as a substring, preserving order and duplicates.",
+    "misconception": "The output contains matching strings from x, not y itself.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "matching_strings",
+          "description": "Returns a list of whole matching strings from x, not y."
+        },
+        {
+          "id": "substring",
+          "description": "Selects strings that contain y as a contiguous substring."
+        },
+        {
+          "id": "order_multiplicity",
+          "description": "Preserves input order and repeated matching occurrences."
+        }
+      ],
+      "already_correct": [],
+      "missing_or_wrong": [
+        {
+          "component_id": "matching_strings",
+          "description": "Claims y itself becomes the output list."
+        },
+        {
+          "component_id": "substring",
+          "description": "Confuses membership in x with substring containment inside each string."
+        },
+        {
+          "component_id": "order_multiplicity",
+          "description": "Does not describe ordered filtering of the input occurrences."
+        }
+      ],
+      "optional_details": [
+        "Explicit empty output when no strings match.",
+        "Explicit behavior for empty y, which matches every string.",
+        "Case sensitivity when ordinary substring containment is already clear."
+      ],
+      "sufficiency_rule": "Accept returns the strings from x containing y as a substring, retaining their order and duplicates. Filtering x to matching strings implies this preservation unless contradicted. Merely returns y or tests whether y is an element of x is insufficient.",
+      "disclosure_note": "Whole matching strings and substring containment are the central corrections. Equivalent filtering wording need not separately list order and duplicate rules. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_18",
+    "split": "evaluation",
+    "source_question_key": "cs105:120003",
+    "source_response_id": 12000385,
+    "source_score": 0,
+    "topic": "case-insensitive matching",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a list of ASCII strings. y is an ASCII string.",
+    "code": "def f(x, y):\n    k = 0\n    for e in x:\n        if y.lower() == e.lower():\n            k += 1\n    return k",
+    "student_response": "returns the total strings in x that contain only lowercase characters",
+    "reference_answer": "Returns the number of strings in x equal to y when letter case is ignored.",
+    "misconception": "lower() supports comparison without case. It does not test whether strings contain only lowercase characters.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "count",
+          "description": "Returns a count of matching string occurrences in x."
+        },
+        {
+          "id": "whole_equality",
+          "description": "Matches complete strings equal to y rather than substrings."
+        },
+        {
+          "id": "ignore_case",
+          "description": "Ignores differences in letter case."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "count",
+          "evidence": "returns the total strings in x",
+          "description": "Recognizes a total over strings; the matching rule is wrong."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "whole_equality",
+          "description": "Does not compare each string with y."
+        },
+        {
+          "component_id": "ignore_case",
+          "description": "Treats lowercase conversion as a test for lowercase-only strings."
+        }
+      ],
+      "optional_details": [
+        "Explicit zero if no matches exist.",
+        "The implementation with lower()."
+      ],
+      "sufficiency_rule": "Accept counts strings in x equal to y ignoring case. Each matching occurrence counts. Contains y is insufficient because equality is required.",
+      "disclosure_note": "Supplying case-insensitive whole-string equality completes the missing predicate; the count interpretation is already present. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_19",
+    "split": "evaluation",
+    "source_question_key": "cs105:130000",
+    "source_response_id": 13000007,
+    "source_score": 0,
+    "topic": "string fields",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a comma-separated string without CSV quoting. y is a valid nonnegative field index.",
+    "code": "def f(x, y):\n    l = x.split(',')\n    return l[y]",
+    "student_response": "returns the character at index y",
+    "reference_answer": "Returns the field at zero-based index y after splitting x at commas.",
+    "misconception": "The index selects a comma-separated field, not a character in the original string.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "returned_field",
+          "description": "Returns one comma-separated field from x as a string."
+        },
+        {
+          "id": "field_index",
+          "description": "Selects the field at zero-based index y."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "field_index",
+          "evidence": "at index y",
+          "description": "Correctly identifies index y, but applies it to characters."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "returned_field",
+          "description": "Confuses a field after comma splitting with a character in x."
+        }
+      ],
+      "optional_details": [
+        "Explicit retention of whitespace and empty fields.",
+        "CSV quoting support, which is excluded by the assumptions."
+      ],
+      "sufficiency_rule": "Accept returns the field at index y after splitting x on commas. Also accept the (y+1)th comma-separated field. No numeric conversion is performed.",
+      "disclosure_note": "Replacing character indexing with comma-separated field indexing completes the missing unit of selection. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  },
+  {
+    "case_id": "eval_20",
+    "split": "evaluation",
+    "source_question_key": "cs105:160000",
+    "source_response_id": 16000000,
+    "source_score": 0,
+    "topic": "dictionary filtering",
+    "assignment": "Describe at a high level what this function does. Do not give a line-by-line description.",
+    "input_assumptions": "x is a dictionary. y is a list of keys to exclude.",
+    "code": "def f(x, y):\n    d = {}\n    for k in x:\n        if k not in y:\n            d[k] = x[k]\n    return d",
+    "student_response": "returns a dictionary d with all values in the dictionary x that are not in list y",
+    "reference_answer": "Returns a new dictionary with the key-value pairs from x whose keys are absent from y.",
+    "misconception": "The exclusion test uses keys, not dictionary values.",
+    "reference_review": "Static code inspection. Code was not executed.",
+    "answer_annotations": {
+      "required_components": [
+        {
+          "id": "output_dictionary",
+          "description": "Returns a new dictionary containing retained key-value pairs from x."
+        },
+        {
+          "id": "key_exclusion",
+          "description": "Excludes entries whose keys occur in y, rather than testing their values."
+        }
+      ],
+      "already_correct": [
+        {
+          "component_id": "output_dictionary",
+          "evidence": "returns a dictionary d",
+          "description": "Correctly identifies a dictionary output."
+        }
+      ],
+      "missing_or_wrong": [
+        {
+          "component_id": "output_dictionary",
+          "description": "Describes retained values rather than key-value pairs."
+        },
+        {
+          "component_id": "key_exclusion",
+          "description": "Applies exclusion to values instead of keys."
+        }
+      ],
+      "optional_details": [
+        "Explicit preservation of the input dictionary.",
+        "Dictionary insertion order.",
+        "Behavior of duplicate or absent exclusion keys."
+      ],
+      "sufficiency_rule": "Accept returns x filtered to entries whose keys are absent from y, as a new dictionary. A returned dictionary retaining entries implies their original values. Do not accept deleting keys from x itself.",
+      "disclosure_note": "Correcting the filter to keys and retaining their entries completes the missing meaning. Do not require redundant wording about values when entries is clear. Count earlier student content before attributing required facts to the tutor. Optional omissions do not make a sufficient answer incomplete; explicit false claims still require correction."
+    }
+  }
+]
